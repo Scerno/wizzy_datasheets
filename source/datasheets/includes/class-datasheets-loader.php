@@ -6,8 +6,8 @@
  * @link       https://scerno.com/author
  * @since      1.0.0
  *
- * @package    Wizzy_Datasheets
- * @subpackage Wizzy_Datasheets/includes
+ * @package    Datasheets
+ * @subpackage Datasheets/includes
  */
 
 /**
@@ -17,11 +17,11 @@
  * the plugin, and register them with the WordPress API. Call the
  * run function to execute the list of actions and filters.
  *
- * @package    Wizzy_Datasheets
- * @subpackage Wizzy_Datasheets/includes
+ * @package    Datasheets
+ * @subpackage Datasheets/includes
  * @author     Scerno Ltd. <info@scerno.com>
  */
-class Wizzy_Datasheets_Loader {
+class Datasheets_Loader {
 
 	/**
 	 * The array of actions registered with WordPress.

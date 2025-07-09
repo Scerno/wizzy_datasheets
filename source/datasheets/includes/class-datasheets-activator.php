@@ -6,8 +6,8 @@
  * @link       https://scerno.com/author
  * @since      1.0.0
  *
- * @package    Wizzy_Datasheets
- * @subpackage Wizzy_Datasheets/includes
+ * @package    Datasheets
+ * @subpackage Datasheets/includes
  */
 
 /**
@@ -16,11 +16,11 @@
  * This class defines all code necessary to run during the plugin's activation.
  *
  * @since      1.0.0
- * @package    Wizzy_Datasheets
- * @subpackage Wizzy_Datasheets/includes
+ * @package    Datasheets
+ * @subpackage Datasheets/includes
  * @author     Scerno Ltd. <info@scerno.com>
  */
-class Wizzy_Datasheets_Activator {
+class Datasheets_Activator {
 
 	/**
 	 * Short Description. (use period)

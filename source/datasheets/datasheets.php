@@ -10,10 +10,10 @@
  *
  * @link              https://scerno.com/author
  * @since             1.0.0
- * @package           Wizzy_Datasheets
+ * @package           Datasheets
  *
  * @wordpress-plugin
- * Plugin Name:       Wizzy Datasheets
+ * Plugin Name:       Datasheets
  * Plugin URI:        https://scerno.com/plugin_url
  * Description:       Create beautiful PDF datasheets for WooCommerce Products using advanced templates and functional dependency to show and hide relevant items.
  * Version:           1.0.0
@@ -21,7 +21,7 @@
  * Author URI:        https://scerno.com/author/
  * License:           GPL-2.0+
  * License URI:       http://www.gnu.org/licenses/gpl-2.0.txt
- * Text Domain:       wizzy-datasheets
+ * Text Domain:       datasheets
  * Domain Path:       /languages
  */
 
@@ -35,17 +35,17 @@ if ( ! defined( 'WPINC' ) ) {
  * Start at version 1.0.0 and use SemVer - https://semver.org
  * Rename this for your plugin and update it as you release new versions.
  */
-define( 'WIZZY_DATASHEETS_VERSION', '1.0.0' );
+define( 'DATASHEETS_VERSION', '1.0.0' );
 
 
 // Define plugin paths for easy usage.
-if ( ! defined( 'WIZZY_DATASHEETS_PLUGIN_DIR' ) ) {
-    define( 'WIZZY_DATASHEETS_PLUGIN_DIR', plugin_dir_path( __FILE__ ) );
+if ( ! defined( 'DATASHEETS_PLUGIN_DIR' ) ) {
+    define( 'DATASHEETS_PLUGIN_DIR', plugin_dir_path( __FILE__ ) );
 }
 
 // Define plugin paths for easy usage.
-if ( ! defined( 'WIZZY_DATASHEETS_PLUGIN_URL' ) ) {
-    define( 'WIZZY_DATASHEETS_PLUGIN_URL', plugin_dir_url( __FILE__ ) );
+if ( ! defined( 'DATASHEETS_PLUGIN_URL' ) ) {
+    define( 'DATASHEETS_PLUGIN_URL', plugin_dir_url( __FILE__ ) );
 }
 
 
@@ -53,28 +53,28 @@ if ( ! defined( 'WIZZY_DATASHEETS_PLUGIN_URL' ) ) {
  * The code that runs during plugin activation.
  * This action is documented in includes/class-wizzy-datasheets-activator.php
  */
-function activate_wizzy_datasheets() {
-	require_once plugin_dir_path( __FILE__ ) . 'includes/class-wizzy-datasheets-activator.php';
-	Wizzy_Datasheets_Activator::activate();
+function activate_datasheets() {
+	require_once plugin_dir_path( __FILE__ ) . 'includes/class-datasheets-activator.php';
+	Datasheets_Activator::activate();
 }
 
 /**
  * The code that runs during plugin deactivation.
  * This action is documented in includes/class-wizzy-datasheets-deactivator.php
  */
-function deactivate_wizzy_datasheets() {
-	require_once plugin_dir_path( __FILE__ ) . 'includes/class-wizzy-datasheets-deactivator.php';
-	Wizzy_Datasheets_Deactivator::deactivate();
+function deactivate_datasheets() {
+	require_once plugin_dir_path( __FILE__ ) . 'includes/class-datasheets-deactivator.php';
+	Datasheets_Deactivator::deactivate();
 }
 
-register_activation_hook( __FILE__, 'activate_wizzy_datasheets' );
-register_deactivation_hook( __FILE__, 'deactivate_wizzy_datasheets' );
+register_activation_hook( __FILE__, 'activate_datasheets' );
+register_deactivation_hook( __FILE__, 'deactivate_datasheets' );
 
 /**
  * The core plugin class that is used to define internationalization,
  * admin-specific hooks, and public-facing site hooks.
  */
-require plugin_dir_path( __FILE__ ) . 'includes/class-wizzy-datasheets.php';
+require plugin_dir_path( __FILE__ ) . 'includes/class-datasheets.php';
 
 /**
  * Begins execution of the plugin.
@@ -85,13 +85,13 @@ require plugin_dir_path( __FILE__ ) . 'includes/class-wizzy-datasheets.php';
  *
  * @since    1.0.0
  */
-function run_wizzy_datasheets() {
+function run_datasheets() {
 
-	$plugin = new Wizzy_Datasheets();
+	$plugin = new Datasheets();
 	$plugin->run();
 
 }
-run_wizzy_datasheets();
+run_datasheets();
 
 
 

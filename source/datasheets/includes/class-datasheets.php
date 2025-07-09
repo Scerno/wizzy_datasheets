@@ -9,8 +9,8 @@
  * @link       https://scerno.com/author
  * @since      1.0.0
  *
- * @package    Wizzy_Datasheets
- * @subpackage Wizzy_Datasheets/includes
+ * @package    Datasheets
+ * @subpackage Datasheets/includes
  */
 
 /**
@@ -23,11 +23,11 @@
  * version of the plugin.
  *
  * @since      1.0.0
- * @package    Wizzy_Datasheets
- * @subpackage Wizzy_Datasheets/includes
+ * @package    Datasheets
+ * @subpackage Datasheets/includes
  * @author     Scerno Ltd. <info@scerno.com>
  */
-class Wizzy_Datasheets {
+class Datasheets {
 
 	/**
 	 * The loader that's responsible for maintaining and registering all hooks that power
@@ -35,7 +35,7 @@ class Wizzy_Datasheets {
 	 *
 	 * @since    1.0.0
 	 * @access   protected
-	 * @var      Wizzy_Datasheets_Loader    $loader    Maintains and registers all hooks for the plugin.
+	 * @var      Datasheets_Loader    $loader    Maintains and registers all hooks for the plugin.
 	 */
 	protected $loader;
 
@@ -67,12 +67,12 @@ class Wizzy_Datasheets {
 	 * @since    1.0.0
 	 */
 	public function __construct() {
-		if ( defined( 'WIZZY_DATASHEETS_VERSION' ) ) {
-			$this->version = WIZZY_DATASHEETS_VERSION;
+		if ( defined( 'DATASHEETS_VERSION' ) ) {
+			$this->version = DATASHEETS_VERSION;
 		} else {
 			$this->version = '1.0.0';
 		}
-		$this->plugin_name = 'wizzy-datasheets';
+		$this->plugin_name = 'datasheets';
 
 		$this->load_dependencies();
 		$this->set_locale();
@@ -86,10 +86,10 @@ class Wizzy_Datasheets {
 	 *
 	 * Include the following files that make up the plugin:
 	 *
-	 * - Wizzy_Datasheets_Loader. Orchestrates the hooks of the plugin.
-	 * - Wizzy_Datasheets_i18n. Defines internationalization functionality.
-	 * - Wizzy_Datasheets_Admin. Defines all hooks for the admin area.
-	 * - Wizzy_Datasheets_Public. Defines all hooks for the public side of the site.
+	 * - Datasheets_Loader. Orchestrates the hooks of the plugin.
+	 * - Datasheets_i18n. Defines internationalization functionality.
+	 * - Datasheets_Admin. Defines all hooks for the admin area.
+	 * - Datasheets_Public. Defines all hooks for the public side of the site.
 	 *
 	 * Create an instance of the loader which will be used to register the hooks
 	 * with WordPress.
@@ -103,29 +103,29 @@ class Wizzy_Datasheets {
 		 * The class responsible for orchestrating the actions and filters of the
 		 * core plugin.
 		 */
-		require_once WIZZY_DATASHEETS_PLUGIN_DIR . 'includes/class-wizzy-datasheets-loader.php';
+		require_once DATASHEETS_PLUGIN_DIR . 'includes/class-datasheets-loader.php';
 
 		/**
 		 * The class responsible for defining internationalization functionality
 		 * of the plugin.
 		 */
-		require_once WIZZY_DATASHEETS_PLUGIN_DIR . 'includes/class-wizzy-datasheets-i18n.php';
+		require_once DATASHEETS_PLUGIN_DIR . 'includes/class-datasheets-i18n.php';
 
 		/**
 		 * The class responsible for defining all actions that occur in the admin area.
 		 */
-		require_once WIZZY_DATASHEETS_PLUGIN_DIR . 'admin/class-wizzy-datasheets-admin.php';
+		require_once DATASHEETS_PLUGIN_DIR . 'admin/class-datasheets-admin.php';
 
 		/**
 		 * The class responsible for defining all actions that occur in the public-facing
 		 * side of the site.
 		 */
-		require_once WIZZY_DATASHEETS_PLUGIN_DIR . 'public/class-wizzy-datasheets-public.php';
+		require_once DATASHEETS_PLUGIN_DIR . 'public/class-datasheets-public.php';
 
-		$this->loader = new Wizzy_Datasheets_Loader();
+		$this->loader = new Datasheets_Loader();
 		
 		// Require the file that handles CPTs:
-        require_once WIZZY_DATASHEETS_PLUGIN_DIR . 'includes/class-wizzy-datasheets-custom-post-types.php';
+        require_once DATASHEETS_PLUGIN_DIR . 'includes/class-datasheets-custom-post-types.php';
 
 
 	}
@@ -133,7 +133,7 @@ class Wizzy_Datasheets {
 	/**
 	 * Define the locale for this plugin for internationalization.
 	 *
-	 * Uses the Wizzy_Datasheets_i18n class in order to set the domain and to register the hook
+	 * Uses the Datasheets_i18n class in order to set the domain and to register the hook
 	 * with WordPress.
 	 *
 	 * @since    1.0.0
@@ -141,7 +141,7 @@ class Wizzy_Datasheets {
 	 */
 	private function set_locale() {
 
-		$plugin_i18n = new Wizzy_Datasheets_i18n();
+		$plugin_i18n = new Datasheets_i18n();
 
 		$this->loader->add_action( 'plugins_loaded', $plugin_i18n, 'load_plugin_textdomain' );
 
@@ -156,7 +156,7 @@ class Wizzy_Datasheets {
 	 */
 	private function define_admin_hooks() {
 
-		$plugin_admin = new Wizzy_Datasheets_Admin( $this->get_plugin_name(), $this->get_version() );
+		$plugin_admin = new Datasheets_Admin( $this->get_plugin_name(), $this->get_version() );
 
 		$this->loader->add_action( 'admin_enqueue_scripts', $plugin_admin, 'enqueue_styles' );
 		$this->loader->add_action( 'admin_enqueue_scripts', $plugin_admin, 'enqueue_scripts' );
@@ -172,7 +172,7 @@ class Wizzy_Datasheets {
 	 */
 	private function define_public_hooks() {
 
-		$plugin_public = new Wizzy_Datasheets_Public( $this->get_plugin_name(), $this->get_version() );
+		$plugin_public = new Datasheets_Public( $this->get_plugin_name(), $this->get_version() );
 
 		$this->loader->add_action( 'wp_enqueue_scripts', $plugin_public, 'enqueue_styles' );
 		$this->loader->add_action( 'wp_enqueue_scripts', $plugin_public, 'enqueue_scripts' );
@@ -186,7 +186,7 @@ class Wizzy_Datasheets {
 	 */
 	public function run() {
 		// Instantiate Custom Post Types 
-		$cpt = new Wizzy_Datasheets_Custom_Post_Types();
+		$cpt = new Datasheets_Custom_Post_Types();
 		$this->loader->run();
 	}
 
@@ -205,7 +205,7 @@ class Wizzy_Datasheets {
 	 * The reference to the class that orchestrates the hooks with the plugin.
 	 *
 	 * @since     1.0.0
-	 * @return    Wizzy_Datasheets_Loader    Orchestrates the hooks of the plugin.
+	 * @return    Datasheets_Loader    Orchestrates the hooks of the plugin.
 	 */
 	public function get_loader() {
 		return $this->loader;

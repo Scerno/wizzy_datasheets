@@ -1,0 +1,59 @@
+#################################
+# 1. Dependency directories
+#################################
+node_modules/
+.pnp/
+.pnp.*          # PnP (Yarn Berry)
+
+#################################
+# 2. Build / compiled output
+#################################
+dist/
+build/
+coverage/
+.nyc_output/
+
+#################################
+# 3. Logs & debug output
+#################################
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+lerna-debug.log*
+
+#################################
+# 4. Runtime data
+#################################
+*.local
+*.cache
+*.pid
+*.seed
+*.tgz
+
+#################################
+# 5. Environment & secrets
+#################################
+.env
+.env.*          # .env.local, .env.production etc.
+
+#################################
+# 6. IDE / editor settings
+#################################
+.vscode/
+.idea/
+*.sublime-workspace
+*.sublime-project
+
+#################################
+# 7. OS-specific noise
+#################################
+.DS_Store
+Thumbs.db
+Icon?
+ehthumbs.db
+
+#################################
+# 8. Optional: override examples
+#################################
+# !dist/keep-this-file.txt

@@ -9,8 +9,8 @@
  * @link       https://scerno.com/author
  * @since      1.0.0
  *
- * @package    Wizzy_Datasheets
- * @subpackage Wizzy_Datasheets/includes
+ * @package    Datasheets
+ * @subpackage Datasheets/includes
  */
 
 /**
@@ -20,11 +20,11 @@
  * so that it is ready for translation.
  *
  * @since      1.0.0
- * @package    Wizzy_Datasheets
- * @subpackage Wizzy_Datasheets/includes
+ * @package    Datasheets
+ * @subpackage Datasheets/includes
  * @author     Scerno Ltd. <info@scerno.com>
  */
-class Wizzy_Datasheets_i18n {
+class Datasheets_i18n {
 
 
 	/**
@@ -35,7 +35,7 @@ class Wizzy_Datasheets_i18n {
 	public function load_plugin_textdomain() {
 
 		load_plugin_textdomain(
-			'wizzy-datasheets',
+			'datasheets',
 			false,
 			dirname( dirname( plugin_basename( __FILE__ ) ) ) . '/languages/'
 		);
