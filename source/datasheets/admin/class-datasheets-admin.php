@@ -80,10 +80,10 @@ class Datasheets_Admin {
 		 * This function is provided for demonstration purposes only.
 		 *
 		 * An instance of this class should be passed to the run() function
-		 * defined in Wizzy_Datasheets_Loader as all of the hooks are defined
+		 * defined in Datasheets_Loader as all of the hooks are defined
 		 * in that particular class.
 		 *
-		 * The Wizzy_Datasheets_Loader will then create the relationship
+		 * The Datasheets_Loader will then create the relationship
 		 * between the defined hooks and the functions defined in this
 		 * class.
 		 */
@@ -103,15 +103,15 @@ class Datasheets_Admin {
 		 * This function is provided for demonstration purposes only.
 		 *
 		 * An instance of this class should be passed to the run() function
-		 * defined in Wizzy_Datasheets_Loader as all of the hooks are defined
+		 * defined in Datasheets_Loader as all of the hooks are defined
 		 * in that particular class.
 		 *
-		 * The Wizzy_Datasheets_Loader will then create the relationship
+		 * The Datasheets_Loader will then create the relationship
 		 * between the defined hooks and the functions defined in this
 		 * class.
 		 */
 
-		wp_enqueue_script( $this->plugin_name, plugin_dir_url( __FILE__ ) . 'js/wizzy-datasheets-admin.js', array( 'jquery' ), $this->version, false );
+		wp_enqueue_script( $this->plugin_name, plugin_dir_url( __FILE__ ) . 'js/datasheets-admin.js', array( 'jquery' ), $this->version, false );
 
 	}
 	

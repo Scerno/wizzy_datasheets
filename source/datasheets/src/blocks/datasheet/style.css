@@ -1,0 +1,13 @@
+/* Public-facing wrapper */
+.datasheet-layout {
+    border: 2px solid #000;   /* thin black border */
+    background: #fff;
+    box-sizing: content-box;   /* already set by inline style too */
+}
+
+.datasheet-content {
+	height:100%;
+	width:100%;
+	position:relative;
+}
+

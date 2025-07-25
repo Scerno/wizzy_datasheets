@@ -5,6 +5,42 @@
  * Defines custom post types and how they work
  */
  
+
+
+// allows editor to get custom post meta
+// plugins/wizzy-datasheets/includes/rest-fields.php
+add_action( 'rest_api_init', function () {
+
+        /*
+         * Field name:  datasheet_meta   (choose anything you like)
+         * Endpoint(s): /wp/v2/datasheet_layout
+         *              /wp/v2/posts
+         *              /wp/v2/pages
+         *              …any post-type you list below
+         */
+        $post_types = get_post_types( [ 'show_in_rest' => true ] );
+
+        register_rest_field(
+                $post_types,                    // ← array of post-type slugs
+                'datasheet_meta',                 // field name
+                [
+                        'get_callback' => function ( $object ) {
+                                // $object is the REST    response array for ONE post
+                                return get_post_meta(
+                                        $object['id'],
+                                        '_ds_layout_settings',
+                                        true               // single
+                                );
+                        },
+                        'schema'       => [
+                                'description' => 'Datasheet layout settings',
+                                'type'        => 'object', // WP ≥6.3 requires this
+                                'context'     => [ 'view', 'edit' ],
+                        ],
+                ]
+        );
+} );
+
  
 class Datasheets_Custom_Post_Types {
 

@@ -1,0 +1,13 @@
+/* Editor-only chrome */
+.datasheet-layout {
+    outline: 2px dashed #8c8f94;   /* WordPress grey */
+    background: #fff;              /* so users see the page area */
+    min-height: 40px;              /* clickable even when empty */
+}
+
+
+.datasheet-content {
+	height:100%;
+	width:100%;
+	position:relative;
+}

@@ -1,16 +1,19 @@
 {
-  "apiVersion": 2,
-  "name": "wizzy/datasheet",
-  "title": "Datasheet",
-  "category": "layout",
-  "icon": "media-document",
-  "description": "Page-sized wrapper that follows a Datasheet Layout.",
-  "supports": { "html": false, "innerBlocks": true },
-  "attributes": {
-    "layoutId":   { "type": "integer", "default": 0 },
-    "styleString":{ "type": "string",  "default": "" }
-  },
-  "editorScript": "file:./index.js",        
-  "editorStyle":  "file:./index.css",        
-  "style":        "file:./style-index.css"
+	"apiVersion": 2,
+	"name": "datasheets/datasheet",
+	"title": "Datasheet",
+	"category": "layout",
+	"icon": "media-document",
+	"description": "Page-sized wrapper that follows a Datasheet Layout.",
+	"supports": { "html": false, "innerBlocks": true },
+	"attributes": {
+		"layoutId":   { "type": "integer", "default": 0 },
+		"styleString":{ "type": "string",  "default": "" }
+	},
+	
+	"editorScript":  "file:./edit.js",
+	"script":        "file:./index.js",
+	
+	"editorStyle":   "file:./edit.css",
+	"viewStyle":     "file:./style-index.css"
 }

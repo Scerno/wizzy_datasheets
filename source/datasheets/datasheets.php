@@ -76,6 +76,11 @@ register_deactivation_hook( __FILE__, 'deactivate_datasheets' );
  */
 require plugin_dir_path( __FILE__ ) . 'includes/class-datasheets.php';
 
+
+// Load block definitions.
+require_once plugin_dir_path( __FILE__ ) . 'blocks/datasheet-blocks.php';
+
+
 /**
  * Begins execution of the plugin.
  *

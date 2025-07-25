@@ -1,6 +1,6 @@
 <?php
 /**
- * Admin settings page for Wizzy Datasheets plugin.
+ * Admin settings page for Datasheets plugin.
  *
  * Registers the settings option, adds the "Settings" submenu under the
  * Datasheets top‑level menu and renders the page (title, form and a reference
@@ -104,7 +104,7 @@ class Datasheets_Admin_Settings_Page {
 	public function render_page() {
 		echo '<div class="wrap">';
 		echo '<h1>' . esc_html__( 'Settings', 'datasheets' ) . '</h1>';
-		echo '<p>' . esc_html__( 'Configure how Wizzy Datasheets interacts with your chosen post type. After you save a post type, a reference list of its available fields will appear below the form.', 'datasheets' ) . '</p>';
+		echo '<p>' . esc_html__( 'Configure how Datasheets interacts with your chosen post type. After you save a post type, a reference list of its available fields will appear below the form.', 'datasheets' ) . '</p>';
 
 		echo '<form method="post" action="options.php">';
 		settings_fields( 'datasheets_settings_group' );
