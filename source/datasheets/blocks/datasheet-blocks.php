@@ -29,25 +29,32 @@ function ds_register_layout_meta() {
  * 2.  Register the Datasheet block
  * ------------------------------------------------------------------
  */
+
+
 add_action( 'init', function () {
 
-    // Path to compiled assets (plugin_root/build/blocks/datasheet)
-    $build_dir = dirname( __DIR__ ) . '/build/blocks/datasheet';
+	$blocks_dir = DATASHEETS_PLUGIN_DIR . 'build/blocks/';
 
-    if ( ! file_exists( $build_dir . '/block.json' ) ) {
-        // Build hasn’t been run: skip block registration,
-        // but meta is still registered by the function above.
-        return;
-    }
+	if ( ! is_dir( $blocks_dir ) ) {
+		return;                // build hasn’t run yet
+	}
 
-    register_block_type(
-        $build_dir,
-        [
-            'render_callback' => 'render_datasheet_block',
-        ]
-    );
+	foreach ( glob( $blocks_dir . '*/block.json' ) as $metadata_file ) {
+
+		$registered = register_block_type_from_metadata( dirname( $metadata_file ) );
+		
+		// error_log( 'Registering: ' . dirname( $metadata_file ) );
+
+		/* ====== DEBUG ====== */
+		if ( is_wp_error( $registered ) ) {
+			error_log(
+				'Datasheets-block error: ' .
+				$registered->get_error_message()
+			);
+		}
+		/* =================== */
+	}
 } );
-
 
 
 /**
@@ -131,3 +138,9 @@ function render_datasheet_block( $atts, $content ) {
 		$content         // inner blocks go inside the inner wrapper
     );
 }
+
+
+// add_action( 'init', function () { error_log( 'MULTIPAGE? ' . ( WP_Block_Type_Registry::get_instance()->is_registered( 'datasheets/multipage' ) ? 'yes' : 'no' ) ); } );
+
+// add_action( 'init', function () { error_log( 'SINGLEPAGE? ' . ( WP_Block_Type_Registry::get_instance()->is_registered( 'datasheets/page' ) ? 'yes' : 'no' ) ); } );
+

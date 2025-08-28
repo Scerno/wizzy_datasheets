@@ -52,24 +52,24 @@ class Datasheets_Custom_Post_Types {
 		
 		// Create CPT for page layouts - like A4, Letter etc
         $layout_labels = array(
-            'name'                => __( 'Datasheet layouts', 'datasheets' ),
-            'singular_name'       => __( 'Datasheet layout', 'datasheets' ),
-			'menu_name'           => __( 'Datasheet layouts', 'datasheets' ),
-			'parent_item_colon'   => __( 'Parent Datasheet layout', 'datasheets' ),
-			'all_items'           => __( 'All layouts', 'datasheets' ),
-			'view_item'           => __( 'View Datasheet layout', 'datasheets' ),
-			'add_new_item'        => __( 'Add New Datasheet layout', 'datasheets' ),
+            'name'                => __( 'Datasheet Page Layouts', 'datasheets' ),
+            'singular_name'       => __( 'Datasheet Page Layout', 'datasheets' ),
+			'menu_name'           => __( 'Datasheet Page Layouts', 'datasheets' ),
+			'parent_item_colon'   => __( 'Parent Datasheet Page Layout', 'datasheets' ),
+			'all_items'           => __( 'Page Layouts', 'datasheets' ),
+			'view_item'           => __( 'View Datasheet Page Layout', 'datasheets' ),
+			'add_new_item'        => __( 'Add New Page Layout', 'datasheets' ),
 			'add_new'             => __( 'Add New', 'datasheets' ),
-			'edit_item'           => __( 'Edit Datasheet layout', 'datasheets' ),
-			'update_item'         => __( 'Update Datasheet layout', 'datasheets' ),
-			'search_items'        => __( 'Search Datasheet layout', 'datasheets' ),
+			'edit_item'           => __( 'Edit Datasheet Page Layout', 'datasheets' ),
+			'update_item'         => __( 'Update Datasheet Page Layout', 'datasheets' ),
+			'search_items'        => __( 'Search Datasheet Page Layout', 'datasheets' ),
 			'not_found'           => __( 'Not Found', 'datasheets' ),
 			'not_found_in_trash'  => __( 'Not found in Trash', 'datasheets' ),
         );
 
         $layout_args = array(
-            'label'              => __( 'Datasheet Layouts', 'datasheets' ),
-			'description'        => __( 'Reusable layouts for Datasheet PDFs.', 'datasheets' ),
+            'label'              => __( 'Datasheet Page Layouts', 'datasheets' ),
+			'description'        => __( 'Reusable page layouts for Datasheet PDFs.', 'datasheets' ),
 			'labels'             => $layout_labels,
 
             // Features this CPT supports in Post Editor
@@ -102,11 +102,66 @@ class Datasheets_Custom_Post_Types {
 		
 		// Create CPT for datasheets
 		$datasheet_labels = array(
+            'name'                => __( 'Datasheet Templates', 'datasheets' ),
+            'singular_name'       => __( 'Datasheet Template', 'datasheets' ),
+			'menu_name'           => __( 'Datasheet Template', 'datasheets' ),
+			'parent_item_colon'   => __( 'Parent Datasheet Template', 'datasheets' ),
+			'all_items'           => __( 'Templates', 'datasheets' ),
+			'view_item'           => __( 'View Datasheet Template', 'datasheets' ),
+			'add_new_item'        => __( 'Add New Datasheet Template', 'datasheets' ),
+			'add_new'             => __( 'Add New', 'datasheets' ),
+			'edit_item'           => __( 'Edit Datasheet Template', 'datasheets' ),
+			'update_item'         => __( 'Update Datasheet Template', 'datasheets' ),
+			'search_items'        => __( 'Search Datasheet Template', 'datasheets' ),
+			'not_found'           => __( 'Not Found', 'datasheets' ),
+			'not_found_in_trash'  => __( 'Not found in Trash', 'datasheets' ),
+        );
+
+        $datasheet_args = array(
+            'label'              => __( 'Datasheet', 'datasheets' ),
+			'description'        => __( 'Datasheets', 'datasheets' ),
+			'labels'             => $datasheet_labels,
+            // Features this CPT supports in Post Editor
+			'supports'            => array( 'title', 'revisions', 'editor' ),
+			// You can associate this CPT with a taxonomy or custom taxonomy. 
+			'taxonomies'          => array( 'genres' ),
+			/* A hierarchical CPT is like Pages and can have
+			* Parent and child items. A non-hierarchical CPT
+			* is like Posts.
+			*/
+			'hierarchical'        => false,
+			'public'              => false,
+			'show_ui'             => true,
+			'show_in_menu'        => 'datasheets',
+			'show_in_nav_menus'   => false,
+			'show_in_admin_bar'   => true,
+			'can_export'          => true,
+			'has_archive'         => true,
+			'exclude_from_search' => true,
+			'publicly_queryable'  => true,
+			'capability_type'     => 'post',
+			// Enable block editor (Gutenberg):
+			'show_in_rest'        => true,
+			'template'      => [
+				[ 'datasheets/multipage', [ ] ],   // your block’s name
+			],
+			'template_lock' => 'all',
+			);
+
+        register_post_type( 'datasheet_template', $datasheet_args );
+		
+		
+		
+		
+		
+		
+		// Create CPT for datasheets
+		$datasheet_labels = array(
             'name'               => __( 'Datasheets', 'datasheets' ),
             'singular_name'      => __( 'Datasheet', 'datasheets' ),
 			'menu_name'           => __( 'Datasheet', 'datasheets' ),
 			'parent_item_colon'   => __( 'Parent Datasheet', 'datasheets' ),
-			'all_items'           => __( 'All Datasheets', 'datasheets' ),
+			'all_items'           => __( 'Datasheets', 'datasheets' ),
 			'view_item'           => __( 'View Datasheet', 'datasheets' ),
 			'add_new_item'        => __( 'Add New Datasheet', 'datasheets' ),
 			'add_new'             => __( 'Add New', 'datasheets' ),
@@ -145,7 +200,6 @@ class Datasheets_Custom_Post_Types {
         );
 
         register_post_type( 'datasheet', $datasheet_args );
-		
 		
 		
 		

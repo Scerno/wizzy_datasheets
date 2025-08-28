@@ -1,0 +1,14 @@
+{
+  "apiVersion": 2,
+  "name": "datasheets/page",
+  "title": "Datasheet Page",
+  "category": "layout",
+  "parent": [ "datasheets/multipage" ],
+  "supports": { "reusable": false },
+  "description": "A single page in a datasheet.",
+  "attributes": {},
+  "editorScript": "file:./index.js",
+  "style": "file:./style-index.css",
+  "editorStyle": "file:./style-index.css",
+  "usesContext": [ "datasheets/layoutId", "datasheets/styleObj" ]
+}

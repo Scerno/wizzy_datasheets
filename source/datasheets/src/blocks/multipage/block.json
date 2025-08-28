@@ -1,0 +1,19 @@
+{
+	"apiVersion": 2,
+	"name": "datasheets/multipage",
+	"title": "Datasheet (Multi-page)",
+	"category": "layout",
+	"icon": "media-document",
+	"attributes": {
+		"pageCount": { "type": "number", "default": 1 },
+		"layoutId":  { "type": "number", "default": 0 },
+		"styleObj":  { "type": "object" }
+	},
+	"supports": { "reusable": false },
+	"editorScript": "file:./index.js",
+	"render": "file:./render.php",
+	"providesContext": {
+		"datasheets/layoutId": "layoutId",
+		"datasheets/styleObj": "styleObj"
+  }
+}

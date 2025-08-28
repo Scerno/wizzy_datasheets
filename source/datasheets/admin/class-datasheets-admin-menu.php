@@ -25,6 +25,7 @@ class Datasheets_Admin_Menu {
 		
 		
 		// Add custom "Add New" submenus - on admin_menu hook is safer then direct manual call
+		/*
 		add_action( 'admin_menu', function () {
 			add_submenu_page(
 				'datasheets', // parent slug
@@ -46,6 +47,7 @@ class Datasheets_Admin_Menu {
 				3 // position – just after “All Items”
 			);
 		}, 20 );
+		*/
 		
     }
 
